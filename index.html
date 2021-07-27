@@ -14,203 +14,224 @@
     ></script>
   </head>
   <body>
-    <nav id="navbar">
-      <header><h1>\( \LaTeX \) Getting Started Guide</h1></header>
-      <a href="#About_this_guide" class="nav-link">About this guide</a>
-      <a href="#Document_structure" class="nav-link">Document structure</a>
-      <a href="#Font_sizes" class="nav-link">Font sizes</a>
-      <a href="#Font_styles" class="nav-link">Font styles</a>
-      <a href="#Text_emphasis" class="nav-link">Text emphasis</a>
-    </nav>
-    <main id="main-doc">
-      <section id="About_this_guide" class="main-section">
-        <header><h2>About this guide</h2></header>
-        <p>
-          \( \LaTeX \) is a typesetting program that helps many academics
-          "typeset mathematical notation easily and legibly". In a way, it is
-          similar to markup languages like Markdown, where we use various
-          symbols to make it do what we want it to do.
-        </p>
-        <p>
-          This getting started guide on \( \LaTeX \) is based on my notes of
-          some of the videos in the video series titled
-          <a
-            href="https://youtube.com/playlist?list=PLQTQDG8nyMPjlHdquBvv6f745YSY2Jylb"
-            >"Just Enough \( \LaTeX \) to Survive"</a
-          >
-          by Aaron Wong, Ph.d., which is uploaded on this YouTube channel called
-          <a href="https://www.youtube.com/channel/UCBvO3V-CAyAaoQP3Ekd9ZDA"
-            >The Math Repository</a
-          >. I will mostly focus on writing math notation in \( \LaTeX \).
-        </p>
-        <p>
-          I can't gurantee the accuracy of this guide, as I'm a beginner.
-          Nevertheless, I hope you find these notes to be helpful as a quick
-          reference after watching the video series.
-        </p>
-      </section>
-      <section id="Document_structure" class="main-section">
-        <header><h2>Document structure</h2></header>
-        <p>
-          A \( \LaTeX \) doucment is made up of 2 main parts, which is the
-          Preamble and Document environment.
-        </p>
-        <h3>Preamble</h3>
-        <p>
-          To me, this is similar to the <code>head</code> section of a webpage.
-          You can type in several parameters of the document here. Some basic
-          parameters are:
-        </p>
-        <ul>
-          <li>
-            <code>\documentclass{...}</code> specifies the type of document, and
-            will load features according to their type. Common document types
-            include:
-            <ul>
-              <li>
-                <code>\documentclass{article}</code>, which is used for general
-                document making and note-taking.
-              </li>
-              <li>
-                <code>\documentclass{beamer}</code>, which is used to make
-                presentation slides.
-              </li>
-            </ul>
-          </li>
-          <li>
-            <code>\usepackage[...](...)</code> allows you to load extra \(
-            \LaTeX \) commands. Fundamental ones are:
-            <ul>
-              <li>
-                The <code>geometry</code> package, which allows for margin
-                modification. For example,
-                <code>\usepackage[margin=1.25in]{geometry}</code>.
-              </li>
-              <li>
-                The <code>amsmath</code> and <code>amssymb</code> packages,
-                which are maintained by the American Mathematical Society (AMS).
-                <code>amsmath</code> has a lot of useful functionality and is
-                pretty much used by everyone. <code>amssymb</code> adds several
-                more useful math symbols.
-              </li>
-            </ul>
-          </li>
-          <li>
-            <code>\usepackage{graphicx}</code> allows embedding
-            <code>.jpg</code> and <code>.png</code> images.
-          </li>
-        </ul>
-        <p>
-          Note: All \( \LaTeX \) packages are free to use and are already
-          installed by default if you get a standard distribution or use a
-          website where you can create \( \LaTeX \) documents (e.g.
-          <a href="https://www.overleaf.com/">Overleaf</a>).
-        </p>
-        <h3>Document environment</h3>
-        <p>
-          The document environment is started with
-          <code>\begin{document}</code> and ended with
-          <code>\end{document}</code>. It is located after the preamble, and
-          contains all of the main contents of the document.
-        </p>
-        <pre>
-          <code>
+    <div id="nav-wrapper">
+      <nav id="navbar">
+        <header>
+          <h1>\( \LaTeX \) Getting Started Guide</h1>
+          <p id="page-description">
+            Technical Documentation Page Project by bryan123bg
+          </p>
+        </header>
+        <div id="nav-link-wrapper">
+          <a href="#About_this_guide" class="nav-link">About this guide</a>
+          <a href="#Document_structure" class="nav-link">Document structure</a>
+          <a href="#Font_sizes" class="nav-link">Font sizes</a>
+          <a href="#Font_styles" class="nav-link">Font styles</a>
+          <a href="#Text_emphasis" class="nav-link">Text emphasis</a>
+        </div>
+      </nav>
+    </div>
+    <div id="main-wrapper">
+      <main id="main-doc">
+        <section id="About_this_guide" class="main-section">
+          <header><h2>About this guide</h2></header>
+          <p>
+            \( \LaTeX \) is a typesetting program that helps many academics
+            "typeset mathematical notation easily and legibly". In a way, it is
+            similar to markup languages like Markdown, where we use various
+            symbols to make it do what we want it to do.
+          </p>
+          <p>
+            This getting started guide on \( \LaTeX \) is based on my notes of
+            some of the videos in the video series titled "<a
+              href="https://youtube.com/playlist?list=PLQTQDG8nyMPjlHdquBvv6f745YSY2Jylb"
+              >Just Enough \( \LaTeX \) to Survive</a
+            >" by Aaron Wong, Ph.d., which is uploaded on this YouTube channel
+            called
+            <a href="https://www.youtube.com/channel/UCBvO3V-CAyAaoQP3Ekd9ZDA"
+              >The Math Repository</a
+            >. This getting started guide will mainly focus on writing math
+            notation in \( \LaTeX \).
+          </p>
+          <p>
+            I can't gurantee the accuracy of this guide, as I'm a beginner.
+            Nevertheless, I hope you find these notes to be helpful as a quick
+            reference after watching the video series.
+          </p>
+        </section>
+        <section id="Document_structure" class="main-section">
+          <header><h2>Document structure</h2></header>
+          <p>
+            A \( \LaTeX \) doucment is made up of 2 main parts, which is the
+            Preamble and Document environment.
+          </p>
+          <h3>Preamble</h3>
+          <p>
+            To me, this is similar to the <code>&lt;head&gt;</code> section of a
+            webpage. You can type in several parameters of the document here.
+            Some basic parameters are:
+          </p>
+          <ul>
+            <li>
+              <code>\documentclass{...}</code> specifies the type of document,
+              and will load features according to their type. Common document
+              types include:
+              <ul>
+                <li>
+                  <code>\documentclass{article}</code>, which is used for
+                  general document making and note-taking.
+                </li>
+                <li>
+                  <code>\documentclass{beamer}</code>, which is used to make
+                  presentation slides.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <code>\usepackage[...](...)</code> allows you to load extra \(
+              \LaTeX \) commands. Fundamental ones are:
+              <ul>
+                <li>
+                  The <code>geometry</code> package, which allows for margin
+                  modification. For example,
+                  <code>\usepackage[margin=1.25in]{geometry}</code>.
+                </li>
+                <li>
+                  The <code>amsmath</code> and <code>amssymb</code> packages,
+                  which are maintained by the American Mathematical Society
+                  (AMS). <code>amsmath</code> has a lot of useful functionality
+                  and is pretty much used by everyone. <code>amssymb</code> adds
+                  several more useful math symbols.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <code>\usepackage{graphicx}</code> allows embedding
+              <code>.jpg</code> and <code>.png</code> images.
+            </li>
+          </ul>
+          <p>
+            Note: All \( \LaTeX \) packages are free to use and are already
+            installed by default if you get a standard distribution or use a
+            website where you can create \( \LaTeX \) documents (e.g.
+            <a href="https://www.overleaf.com/">Overleaf</a>).
+          </p>
+          <h3>Document environment</h3>
+          <p>
+            The document environment is started with
+            <code>\begin{document}</code> and ended with
+            <code>\end{document}</code>. It is located after the preamble, and
+            contains all of the main contents of the document.
+          </p>
+          <pre>
+            <code>% This section is the preamble
+  
+\documentclass{article}
+  
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+  
+  
+% This is where the document environment begins
+  
 \begin{document}
-...
-\end{document}
-          </code>
-        </pre>
-      </section>
-      <section id="Font_sizes" class="main-section">
-        <header><h2>Font sizes</h2></header>
-        <p>
-          First, we can modify the font size of the entire document by adding
-          optional arguments in the square brackets before the curly brackets of
-          <code>\documentclass[]{}</code>, e.g.
-          <code>\documentclass[10pt]{article}</code>. This will change the
-          normal font size of the document, and adjust the other font sizes
-          (small, large, etc.) relative to this.
-        </p>
-        <p>
-          To modify font sizes, you can use these commands listed below, which
-          are ordered from smallest to largest:
-        </p>
-        <ul>
-          <li><code>\tiny</code></li>
-          <li><code>\scriptsize</code></li>
-          <li><code>\footnotesize</code></li>
-          <li><code>\normalsize</code></li>
-          <li><code>\large</code></li>
-          <li><code>\Large</code></li>
-          <li><code>\LARGE</code></li>
-          <li><code>\huge</code></li>
-          <li><code>\Huge</code></li>
-        </ul>
-        <p>These commands can be used in either two ways:</p>
-        <ol>
-          <li>
-            <b>Using it as a switch</b>: You can simply include the command, and
-            everything that follows it will use that font size until you switch
-            it to something else. This is good for long stretches of text with
-            such font size. Otherwise, use the second method...
-          </li>
-          <li>
-            <b>Using curly brackets to section areas for limited scope</b>: You
-            can also limit the scope of this switch by enclosing it along with
-            the following text that is supposed to be affected by it using curly
-            braces (<code>{}</code>). Note that this method is consistent with
-            the way other "switches" generally work in \( \LaTeX \).
-          </li>
-        </ol>
-        <p>
-          If you need more font sizes, use these packages:
-          <code>extsizes</code>, <code>anyfontsize</code>. However, in most
-          cases, the default font sizes available should be enough.
-        </p>
-      </section>
-      <section id="Font_styles" class="main-section">
-        <header><h2>Font styles</h2></header>
-        <p>Font styles can be switched using the below functions:</p>
-        <ul>
-          <li>Bold text using <code>\textbf{}</code></li>
-          <li>Italic text using <code>\textit{...}</code></li>
-          <li>Underline text using <code>\underline{...}</code></li>
-        </ul>
-        <p>
-          Notice that instead of changing the font style(s) using switches like
-          when changing font sizes, these act more like functions, which apply
-          their actions to the text inside of the curly braces directly
-          following it.
-        </p>
-        <p>
-          This is a good time to note that a lot of things in \( \LaTeX \)
-          involves the use of brackets. All brackets that are opened must be
-          closed, or not it will throw an error when compiling.
-        </p>
-        <p>
-          As a tip, since finding missing opening and/or closing brackets can be
-          difficult, you may want to compile your document more often so that
-          there is less areas to check where the error could happen.
-        </p>
-        <p>
-          You should also be careful when using underlines. Poor spacing and
-          overflow can occur with long lines of underlined text as as \( \LaTeX
-          \) doesn't know how to break such text into multiple lines. To avoid
-          this, use the <code>ulem</code> package by including
-          <code>\usepackage{ulem}</code> in the preamble, which not only fixes
-          text-wrapping issues but provides additional underlines. You also need
-          to use the package's notation:
-        </p>
-        <ul>
-          <li>Regular underline using <code>\uline{...}</code></li>
-          <li>Double underline using <code>\uuline{...}</code></li>
-          <li>Wavy underline using <code>\uwave{...}</code></li>
-        </ul>
-      </section>
-      <section id="Text_emphasis" class="main-section">
-        <header><h2>Text emphasis</h2></header>
-      </section>
-    </main>
+  ...
+\end{document}</code>
+          </pre>
+        </section>
+        <section id="Font_sizes" class="main-section">
+          <header><h2>Font sizes</h2></header>
+          <p>
+            First, we can modify the font size of the entire document by adding
+            optional arguments in the square brackets before the curly brackets
+            of
+            <code>\documentclass[]{}</code>, e.g.
+            <code>\documentclass[10pt]{article}</code>. This will change the
+            normal font size of the document, and adjust the other font sizes
+            (small, large, etc.) relative to this.
+          </p>
+          <p>
+            To modify font sizes, you can use these commands listed below, which
+            are ordered from smallest to largest:
+          </p>
+          <ul>
+            <li><code>\tiny</code></li>
+            <li><code>\scriptsize</code></li>
+            <li><code>\footnotesize</code></li>
+            <li><code>\normalsize</code></li>
+            <li><code>\large</code></li>
+            <li><code>\Large</code></li>
+            <li><code>\LARGE</code></li>
+            <li><code>\huge</code></li>
+            <li><code>\Huge</code></li>
+          </ul>
+          <p>These commands can be used in either two ways:</p>
+          <ol>
+            <li>
+              <b>Using it as a switch</b>: You can simply include the command,
+              and everything that follows it will use that font size until you
+              switch it to something else. This is good for long stretches of
+              text with such font size. Otherwise, use the second method...
+            </li>
+            <li>
+              <b>Using curly brackets to section areas for limited scope</b>:
+              You can also limit the scope of this switch by enclosing it along
+              with the following text that is supposed to be affected by it
+              using curly braces (<code>{}</code>). Note that this method is
+              consistent with the way other "switches" generally work in \(
+              \LaTeX \).
+            </li>
+          </ol>
+          <p>
+            If you need more font sizes, use these packages:
+            <code>extsizes</code>, <code>anyfontsize</code>. However, in most
+            cases, the default font sizes available should be enough.
+          </p>
+        </section>
+        <section id="Font_styles" class="main-section">
+          <header><h2>Font styles</h2></header>
+          <p>Font styles can be switched using the below functions:</p>
+          <ul>
+            <li>Bold text using <code>\textbf{}</code></li>
+            <li>Italic text using <code>\textit{...}</code></li>
+            <li>Underline text using <code>\underline{...}</code></li>
+          </ul>
+          <p>
+            Notice that instead of changing the font style(s) using switches
+            like when changing font sizes, these act more like functions, which
+            apply their actions to the text inside of the curly braces directly
+            following it.
+          </p>
+          <p>
+            This is a good time to note that a lot of things in \( \LaTeX \)
+            involves the use of brackets. All brackets that are opened must be
+            closed, or not it will throw an error when compiling.
+          </p>
+          <p>
+            As a tip, since finding missing opening and/or closing brackets can
+            be difficult, you may want to compile your document more often so
+            that there is less areas to check where the error could happen.
+          </p>
+          <p>
+            You should also be careful when using underlines. Poor spacing and
+            overflow can occur with long lines of underlined text as as \(
+            \LaTeX \) doesn't know how to break such text into multiple lines.
+            To avoid this, use the <code>ulem</code> package by including
+            <code>\usepackage{ulem}</code> in the preamble, which not only fixes
+            text-wrapping issues but provides additional underlines. You also
+            need to use the package's notation:
+          </p>
+          <ul>
+            <li>Regular underline using <code>\uline{...}</code></li>
+            <li>Double underline using <code>\uuline{...}</code></li>
+            <li>Wavy underline using <code>\uwave{...}</code></li>
+          </ul>
+        </section>
+        <section id="Text_emphasis" class="main-section">
+          <header><h2>Text emphasis</h2></header>
+        </section>
+      </main>
+    </div>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
   </body>
 </html>
