@@ -28,6 +28,15 @@
           <a href="#Font_sizes" class="nav-link">Font sizes</a>
           <a href="#Font_styles" class="nav-link">Font styles</a>
           <a href="#Text_emphasis" class="nav-link">Text emphasis</a>
+          <a href="#Font_families" class="nav-link">Font families</a>
+          <a href="#Text_alignment" class="nav-link">Text alignment</a>
+          <a href="#Line_breaks_in_alternate_alignment_modes" class="nav-link"
+            >Line breaks in alternate alignment modes</a
+          >
+          <a href="#Indentation_and_paragraphs" class="nav-link"
+            >Indentation and paragraphs</a
+          >
+          <a href="#Units_of_length" class="nav-link">Units of length</a>
         </div>
       </nav>
     </div>
@@ -42,8 +51,8 @@
             symbols to make it do what we want it to do.
           </p>
           <p>
-            This getting started guide on \( \LaTeX \) is based on my notes of
-            some of the videos in the video series titled "<a
+            This getting started guide on \( \LaTeX \) is mostly based on my
+            notes of some of the videos in the video series titled "<a
               href="https://youtube.com/playlist?list=PLQTQDG8nyMPjlHdquBvv6f745YSY2Jylb"
               >Just Enough \( \LaTeX \) to Survive</a
             >" by Aaron Wong, Ph.d., which is uploaded on this YouTube channel
@@ -123,8 +132,7 @@
             <code>\end{document}</code>. It is located after the preamble, and
             contains all of the main contents of the document.
           </p>
-          <pre>
-            <code>% This section is the preamble
+          <pre><code>% This section is the preamble
   
 \documentclass{article}
   
@@ -136,8 +144,7 @@
   
 \begin{document}
   ...
-\end{document}</code>
-          </pre>
+\end{document}</code></pre>
         </section>
         <section id="Font_sizes" class="main-section">
           <header><h2>Font sizes</h2></header>
@@ -182,6 +189,17 @@
               \LaTeX \).
             </li>
           </ol>
+          <pre><code>% 1. Using it as a switch
+Normal size. \LARGE Switched! \normalsize Switched back.
+
+% 2. Using curly brackets to section areas for limited scope
+Only {\LARGE this} is large!</code></pre>
+          <div class="mathjax-latex-rendering">
+            \[ \text{Normal size. } \LARGE \text{Switched!} \normalsize \text{
+            Switched back.} \] \[ \text{Only } \LARGE \text{this} \normalsize
+            \text{ is large!} \]
+          </div>
+          <!-- Since MathJax only supports mostly rendering of LaTeX math, I had to use a bunch of these functions to simulate what the final output will look like. -->
           <p>
             If you need more font sizes, use these packages:
             <code>extsizes</code>, <code>anyfontsize</code>. However, in most
@@ -192,10 +210,23 @@
           <header><h2>Font styles</h2></header>
           <p>Font styles can be switched using the below functions:</p>
           <ul>
-            <li>Bold text using <code>\textbf{}</code></li>
+            <li>Bold text using <code>\textbf{...}</code></li>
             <li>Italic text using <code>\textit{...}</code></li>
             <li>Underline text using <code>\underline{...}</code></li>
           </ul>
+          <pre><code>% Bold text
+\textbf{I'm bold}
+
+% Italic text
+\textit{I'm italic}
+
+% Underline text
+\underline{I'm underlined}</code></pre>
+          <div class="mathjax-latex-rendering">
+            \[ \textbf{I'm bold} \] \[ \textit{I'm italic} \] \[
+            \underline{\textrm{I'm underlined}} \]
+          </div>
+          <!-- Here, since MathJax only supports mostly math, it seems that I had to put the underline bracket outside of the text bracket. -->
           <p>
             Notice that instead of changing the font style(s) using switches
             like when changing font sizes, these act more like functions, which
@@ -213,10 +244,10 @@
             that there is less areas to check where the error could happen.
           </p>
           <p>
-            You should also be careful when using underlines. Poor spacing and
-            overflow can occur with long lines of underlined text as as \(
-            \LaTeX \) doesn't know how to break such text into multiple lines.
-            To avoid this, use the <code>ulem</code> package by including
+            You should also <em>be careful when using underlines</em>. Poor
+            spacing and overflow can occur with long lines of underlined text as
+            as \( \LaTeX \) doesn't know how to break such text into multiple
+            lines. To avoid this, use the <code>ulem</code> package by including
             <code>\usepackage{ulem}</code> in the preamble, which not only fixes
             text-wrapping issues but provides additional underlines. You also
             need to use the package's notation:
@@ -226,10 +257,162 @@
             <li>Double underline using <code>\uuline{...}</code></li>
             <li>Wavy underline using <code>\uwave{...}</code></li>
           </ul>
+          <p>
+            Unfortunately,
+            <a href="https://www.mathjax.org/">MathJax</a> (which is used to
+            render the LaTeX math on this page) doesn't support adding packages,
+            so it's not possible to render what these will look like here using
+            it.
+          </p>
+          <pre><code>% Regular underlined text
+\uline{Regular underlined text}
+
+% Double underlined text
+\uuline{Double underlined text}
+
+% Wavy underlined text
+\uwave{Wavy underlined text}</code></pre>
         </section>
         <section id="Text_emphasis" class="main-section">
           <header><h2>Text emphasis</h2></header>
+          <p>
+            If font styles are used to emphasize text, it's better to use the
+            <code>\emph{...}</code> function, e.g. when writing definitions and
+            theorems (theorem environments are discussed later). It will
+            emphasize the text based on the context of the surrounding text too,
+            e.g. non-italics if everything is italics, etc.
+          </p>
+          <p>
+            Note that the <code>ulem</code> package changes the way
+            <code>\emph{}</code> emphasizes text, that is by underlining it
+            instead of italicizing it. To switch to the normal mode, type in
+            <code>\normalem</code> anywhere after the <code>ulem</code> package
+            has been called. To switch back to the mode the package provides,
+            type in <code>\ULforem</code>.
+          </p>
+          <pre><code>% Preamble
+\documentclass{article}
+
+\usepackage{amsmath, amssymb}
+\usepackage{ulem}
+\normalem % Switches back to the normal emphasis mode.
+
+
+% Document starts here
+\begin{document}
+
+After using the command, text which is emphasized like \emph{this} will now be italicized instead of underlined!
+
+\end{document}</code></pre>
         </section>
+        <section id="Font_families" class="main-section">
+          <header><h2>Font families</h2></header>
+          <p>
+            The default font family used is the Roman text, however you can
+            change it into other font families as shown below:
+          </p>
+          <ul>
+            <li>Default (Roman) text: <code>\textrm{...}</code></li>
+            <li>Sans-serif text: <code>\textsf{...}</code></li>
+            <li>Typewriter text: <code>\texttt{..}</code></li>
+          </ul>
+          <div class="mathjax-latex-rendering">
+            \[ \textrm{Default (Roman) text} \] \[ \textsf{Sans serif text} \]
+            \[ \texttt{Typewriter text} \]
+          </div>
+          <p>
+            Note that typewritter text is a monospace font and hence mostly used
+            for code snippets. Also, notice that these are applied as functions,
+            <em>not</em> as switches.
+          </p>
+        </section>
+        <section id="Text_alignment" class="main-section">
+          <header><h2>Text alignment</h2></header>
+          <p>
+            By default, text is justified, where the text is spaced out to fill
+            the full width of the page, leaving straight left and right margins.
+            However, you can align text in the standard different ways too:
+          </p>
+          <ul>
+            <li>
+              Center justified text:
+              <code>\begin{center} ... \end{center}</code>
+            </li>
+            <li>
+              Left justified text:
+              <code>\begin{flushleft} ... \end{flushleft}</code>
+            </li>
+            <li>
+              Right justified text:
+              <code>\begin{flushright} ... \end{flushright}</code>
+            </li>
+          </ul>
+        </section>
+        <section
+          id="Line_breaks_in_alternate_alignment_modes"
+          class="main-section"
+        >
+          <header><h2>Line breaks in alternate alignment modes</h2></header>
+          <p>
+            In the non-default alignment methods (i.e. in any alignment mode
+            other than justified), you can add another line of text using a
+            double backslash, and the command
+            <code>[\baselineskip]</code> to add blank lines (to add more, add a
+            <code>2</code> in front of the backslash, as shown).
+          </p>
+          <p>
+            Note that the additional line breaks here are to simulate what the
+            final output will look like, as again, I don't think it's possbile
+            to render using MathJax.
+          </p>
+          <pre><code>A line of text. \\
+Another line of text. \\[\baseilneskip]
+
+Yet another line of text. \\[2\baselineskip]
+
+
+Final line of text.</code></pre>
+        </section>
+        <section id="Indentation_and_paragraphs" class="main-section">
+          <header><h2>Indentation and paragraphs</h2></header>
+          <p>
+            You can start a new paragraph by adding a blank line of text between
+            each paragraph. By default, indentation will be added to every new
+            paragraph. To remove the indent for a particular paragraph, use the
+            <code>\noindent</code> command at the beginning of the paragraph.
+          </p>
+          <pre><code>This is the first paragraph.
+
+\noindent This is a very nice second paragraph without an indent.
+
+This is the third paragraph!</code></pre>
+          <p>
+            To remove the indent or modify its length for the entire document,
+            you can use the <code>\setlength{\parindent}{1cm}</code> command at
+            the preamble or in the beginning of the document.
+          </p>
+          <p>
+            Technically, you can use the
+            <code>\setlength{\parindent}{...}</code> command every time you want
+            to do change the indent and then switch it back, however this is not
+            recommended as the document will be awkward flowing.
+          </p>
+        </section>
+        <section id="Units_of_length" class="main-section">
+          <header><h2>Units of length</h2></header>
+          <p>Listed below are the available units in \( \LaTeX \):</p>
+          <ul>
+            <li><code>in</code>: inches</li>
+            <li><code>cm</code>: centimeters</li>
+            <li><code>mm</code>: millimeters</li>
+            <li><code>pt</code>: points; about 1/72 of an inch</li>
+            <li><code>em</code>: about the width of an m</li>
+            <li><code>ex</code>: about the height of an x</li>
+          </ul>
+        </section>
+        <!-- <section id="test" class="main-section">
+          <header><h2>test</h2></header>
+        </section> -->
       </main>
     </div>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>

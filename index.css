@@ -56,18 +56,21 @@ li {
 }
 h3 {
   font-weight: 700;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   margin: 0.5em 0 0.2em;
 }
 p,
 a,
 code {
-  font-size: 1em;
+  font-size: 1rem;
   color: black;
 }
 p,
 li {
   line-height: 1.7;
+}
+code {
+  line-height: 1.5;
 }
 p {
   margin-bottom: 1em;
@@ -138,12 +141,30 @@ pre {
   white-space: pre-wrap;
   background: hsl(113, 0%, 95%);
   padding: 1em;
+  margin-bottom: 1em;
   border-radius: 0.5em;
 }
 pre code {
   display: block;
   background: unset;
   padding: unset;
+}
+/* MathJax LaTeX rendering */
+div.mathjax-latex-rendering {
+  display: block;
+  width: 100%;
+  padding: 1em;
+  margin-bottom: 1em;
+
+  border: 0.1em solid hsl(0, 0%, 80%);
+  border-radius: 0.5em;
+
+  font-size: 1.2rem;
+}
+@media (max-width: 470px) {
+  div.mathjax-latex-rendering {
+    font-size: 0.8rem;
+  }
 }
 
 /* II. Tablet styles */
