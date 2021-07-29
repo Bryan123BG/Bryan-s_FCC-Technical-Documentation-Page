@@ -77,6 +77,11 @@ p#page-description {
   margin-bottom: unset;
 }
 
+/* Links */
+a:hover {
+  color: hsl(113, 50%, 40%);
+}
+
 /* Navigation bar */
 div#nav-wrapper {
   background: hsl(113, 50%, 93%);
@@ -115,6 +120,10 @@ a.nav-link::after {
 }
 a.nav-link:last-of-type::after {
   content: unset;
+}
+a.nav-link:hover {
+  color: hsl(113, 50%, 30%);
+  background: hsl(0, 0%, 95%);
 }
 
 /* Content */
