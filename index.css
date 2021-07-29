@@ -144,13 +144,20 @@ pre {
   margin-bottom: 1em;
   border-radius: 0.5em;
 }
+pre.overflow-x {
+  white-space: pre;
+  overflow-x: auto;
+}
+li > pre {
+  margin-top: 1em;
+}
 pre code {
   display: block;
   background: unset;
   padding: unset;
 }
 /* MathJax LaTeX rendering */
-div.mathjax-latex-rendering {
+div.mathjax-rendering {
   display: block;
   width: 100%;
   padding: 1em;
@@ -160,10 +167,12 @@ div.mathjax-latex-rendering {
   border-radius: 0.5em;
 
   font-size: 1.2rem;
+
+  overflow-x: auto;
 }
-@media (max-width: 470px) {
-  div.mathjax-latex-rendering {
-    font-size: 0.8rem;
+@media (max-width: 620px) {
+  div.mathjax-rendering {
+    font-size: 1rem;
   }
 }
 
@@ -206,9 +215,6 @@ div.mathjax-latex-rendering {
   nav {
     height: 100%;
     max-height: unset;
-  }
-  div#nav-link-wrapper {
-    height: min-content;
   }
   a.nav-link::after {
     background: hsl(0, 0%, 85%);

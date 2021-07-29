@@ -37,6 +37,16 @@
             >Indentation and paragraphs</a
           >
           <a href="#Units_of_length" class="nav-link">Units of length</a>
+          <a href="#Math_modes" class="nav-link">Math modes</a>
+          <a href="#Arithmetic_notation" class="nav-link"
+            >Arithmetic notation</a
+          >
+          <a href="#Fractions" class="nav-link">Fractions</a>
+          <a href="#Superscript_and_subscript" class="nav-link">Superscript and subscript</a>
+          <a href="#Parentheses" class="nav-link">Parentheses</a>
+          <a href="#Writing_text_in_math_mode" class="nav-link">Writing text in math mode</a>
+          <a href="#Greek_letters" class="nav-link">Greek letters</a>
+          <a href="#Blackboard_font" class="nav-link">Blackboard font</a>
         </div>
       </nav>
     </div>
@@ -59,19 +69,19 @@
             called
             <a href="https://www.youtube.com/channel/UCBvO3V-CAyAaoQP3Ekd9ZDA"
               >The Math Repository</a
-            >. This getting started guide will mainly focus on writing math
-            notation in \( \LaTeX \).
+            >. This getting started guide will mainly focus on formatting text and writing math notation in \( \LaTeX \).
           </p>
           <p>
-            I can't gurantee the accuracy of this guide, as I'm a beginner.
+            I can't guarantee the accuracy of this guide, as I'm a beginner.
             Nevertheless, I hope you find these notes to be helpful as a quick
             reference after watching the video series.
           </p>
+          <p>Thank you for checking this page out and enjoy!</p>
         </section>
         <section id="Document_structure" class="main-section">
           <header><h2>Document structure</h2></header>
           <p>
-            A \( \LaTeX \) doucment is made up of 2 main parts, which is the
+            A \( \LaTeX \) document is made up of 2 main parts, which is the
             Preamble and Document environment.
           </p>
           <h3>Preamble</h3>
@@ -194,7 +204,7 @@ Normal size. \LARGE Switched! \normalsize Switched back.
 
 % 2. Using curly brackets to section areas for limited scope
 Only {\LARGE this} is large!</code></pre>
-          <div class="mathjax-latex-rendering">
+          <div class="mathjax-rendering">
             \[ \text{Normal size. } \LARGE \text{Switched!} \normalsize \text{
             Switched back.} \] \[ \text{Only } \LARGE \text{this} \normalsize
             \text{ is large!} \]
@@ -222,7 +232,7 @@ Only {\LARGE this} is large!</code></pre>
 
 % Underline text
 \underline{I'm underlined}</code></pre>
-          <div class="mathjax-latex-rendering">
+          <div class="mathjax-rendering">
             \[ \textbf{I'm bold} \] \[ \textit{I'm italic} \] \[
             \underline{\textrm{I'm underlined}} \]
           </div>
@@ -316,7 +326,7 @@ After using the command, text which is emphasized like \emph{this} will now be i
             <li>Sans-serif text: <code>\textsf{...}</code></li>
             <li>Typewriter text: <code>\texttt{..}</code></li>
           </ul>
-          <div class="mathjax-latex-rendering">
+          <div class="mathjax-rendering">
             \[ \textrm{Default (Roman) text} \] \[ \textsf{Sans serif text} \]
             \[ \texttt{Typewriter text} \]
           </div>
@@ -362,7 +372,7 @@ After using the command, text which is emphasized like \emph{this} will now be i
           </p>
           <p>
             Note that the additional line breaks here are to simulate what the
-            final output will look like, as again, I don't think it's possbile
+            final output will look like, as again, I don't think it's possible
             to render using MathJax.
           </p>
           <pre><code>A line of text. \\
@@ -410,9 +420,263 @@ This is the third paragraph!</code></pre>
             <li><code>ex</code>: about the height of an x</li>
           </ul>
         </section>
-        <!-- <section id="test" class="main-section">
-          <header><h2>test</h2></header>
-        </section> -->
+        <section id="Math_modes" class="main-section">
+          <header><h2>Math modes</h2></header>
+          <p>
+            Math modes are another environment with its own rules on how to
+            typeset symbols. The two math modes are:
+          </p>
+          <ol>
+            <li>
+              <b>Display style math</b>: Used when the math is supposed to stand
+              apart from the text, and generally used for long equations and
+              expressions which are being manipulated.
+            </li>
+            <li>
+              <b>Inline/Text style math</b>: Used when the math is supposed to
+              be part of the text.
+            </li>
+          </ol>
+          <p>
+            Display style math is also stacked more vertically compared to
+            inline math, which can create awkward spacing in paragraphs (don't
+            worry about the summation notation for now). Despite this, you can
+            still force display math in inline mode using
+            <code>\( \displaystyle ... \)</code>, and force inline math in
+            display mode using <code>\[ \textstyle ... \]</code>.
+          </p>
+          <p>
+            The below example is copied from the third video in the series
+            titled, "<a href="https://youtu.be/jJTzZAXu-7g"
+              >Basic Math Manipulation</a
+            >".
+          </p>
+          <pre><code>% Display style Math
+\[ \sum_{n=1}^\infty \frac{1}{n^2} \]
+
+% Inline/Text style math
+\( \sum_{n=1}^\infty \frac{1}{n^2} \)
+
+% Using display style math in inline mode
+\( \displaystyle \sum_{n=1}^\infty \frac{1}{n^2} \)
+
+% Using inline style math in display mode
+\[ \textstyle \sum_{n=1}^\infty \frac{1}{n^2} \]</code></pre>
+          <p></p>
+          <div class="mathjax-rendering">
+            \[ \sum_{n=1}^\infty \frac{1}{n^2} \] \[ \textstyle
+            \sum_{n=1}^\infty \frac{1}{n^2} \]
+          </div>
+          <h3>Display style math</h3>
+          <p>There are two ways to use display style math:</p>
+          <ol>
+            <li>
+              Use backslash (<code>\</code>) and square bracket (<code>[</code>
+              and <code>]</code>) combinations as shown below, which to me the
+              backslashes feel like the character used to indicate that you want
+              to do a command. This is commonly used for one-line math.
+              <pre><code>\[ f(x) = (x + 2)^2 -9 \]</code></pre>
+              <div class="mathjax-rendering">\[ f(x) = (x + 2)^2 -9 \]</div>
+            </li>
+            <li>
+              Use a display math environment, e.g. the
+              <code>align</code> environment.
+              <pre class="overflow-x"><code>\begin{align}
+  f(x) & = a_2 x^2 + a_1 x + a_o \nonumber \\
+       & = x^2 + 4x - 5
+\end{align}
+
+% Replace with \begin{align*} and \end{align*} to to disable numbering of equations by default.</code></pre>
+              <div class="mathjax-rendering">
+                \[ \begin{align} f(x) & = a_2 x^2 + a_1 x + a_o \nonumber \\ & =
+                x^2 + 4x - 5 \end{align} \]
+              </div>
+              <ul>
+                <li>
+                  By default, all equations are numbered. To prevent one from
+                  being numbered, you can add <code>\nonumber</code> to the end
+                  of the line or use <code>align*</code> instead of
+                  <code>align</code> to not number any equations by default in
+                  that environment.
+                </li>
+                <li>
+                  Also, the ampersand symbol (<code>&</code>) indicates the
+                  location of the alignment, and more than one can be used to
+                  align more equations. The below example is also taken from the
+                  video.
+                  <pre class="overflow-x"><code>\begin{align*}
+2x + 1 & = 9  & 3y - 2 & = -5  & -5z + 8 & = 3 \\
+    2x & = 8  &     3y & = -3  &     -5z & = -5 \\
+     x & = 4  &      y & = -1  &       z & = -1
+\end{align*}</code></pre>
+                  <div class="mathjax-rendering small">
+                    \begin{align*} 2x + 1 & = 9 & 3y - 2 & = -5 & -5z + 8 & = 3
+                    \\ 2x & = 8 & 3y & = -3 & -5z & = -5 \\ x & = 4 & y & = -1 &
+                    z & = -1 \end{align*}
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ol>
+          <p>
+            As a tip, the ampersands can be used to organize whitespace in your
+            document, and it is good practice to align the code to the result,
+            so that it's more readable.
+          </p>
+          <h3>Inline/Text style math</h3>
+          <p>
+            There are two ways to display inline math, however the second one is
+            preferred as the first one is dated despite being common.
+          </p>
+          <ol>
+            <li>Use <code>$</code> to open and close</li>
+            <li>Use <code>\(</code> to open and <code>\)</code> to close.</li>
+          </ol>
+          <p>
+            Note that when writing variables in a paragraph, you should be in
+            inline math mode, which makes it easy to differentiate text and
+            math.
+          </p>
+          <pre><code>The variable \( x \)
+The letter x</code></pre>
+          <div class="mathjax-rendering">
+            \[ \text{The variable } x \] \[ \text{The letter x} \]
+          </div>
+        </section>
+        <section id="Arithmetic_notation" class="main-section">
+          <header><h2>Arithmetic notation</h2></header>
+          <p>
+            Finally we get into math notation :D Notice that curly brackets are
+            commonly used in \( \LaTeX \) to group objects so that it treats it
+            as one object, such as in the notation for sums and fractions.
+          </p>
+          <p>
+            Also, note that math notation must be written inside of one of the
+            math modes to show in the output.
+          </p>
+          <p>
+            Below is a list of basic arithmetic notation. Please note that for
+            multiplication, do not use asterisks; instead, use one of the
+            multiplication notation provided. Also, for division, be careful to
+            not use bad notation; use fractions instead for the most part.
+          </p>
+          <ul>
+            <li>Addition, e.g. <code>1 + 1</code> becomes \( 1 + 1 \)</li>
+            <li>Subtraction, e.g. <code>5 - 3</code> becomes \( 5 - 3 \)</li>
+            <li>
+              Multiplication (dot notation), e.g. <code>6 \cdot 4</code> becomes
+              \( 6 \cdot 4 \)
+            </li>
+            <li>
+              Multiplication (X notation), e.g. <code>6 \times 4</code> becomes
+              \( 6 \times 4 \)
+            </li>
+            <li>
+              Division, e.g. <code>27 \div 9</code> becomes \( 27 \div 9 \)
+            </li>
+          </ul>
+        </section>
+        <section id="Fractions" class="main-section">
+          <header><h2>Fractions</h2></header>
+          <p>
+            Fractions can be written out by typing
+            <code>\frac{numerator}{denominator}</code>. It will choose display style or inline style based on the math mode its written in, but you can force either by using:
+          </p>
+          <ul>
+            <li>Display style: <code>\dfrac{...}{...}</code></li>
+            <li>Inline: <code>\tfrac{...}{...}</code></li>
+          </ul>
+          <pre><code>\frac{\pi}{3}</code></pre>
+          <div class="mathjax-rendering">\[ \frac{\pi}{3} \]</div>
+        </section>
+        <section id="Superscript_and_subscript" class="main-section">
+          <header><h2>Superscript and subscript</h2></header>
+          <p>A <b>superscript</b> is small text written <em>above</em> normal text, e.g. to indicate powers. This is done by using a caret (<code>^</code>) symbol after a term.</p>
+          <p>A <b>subscript</b> is small text written <em>below</em> normal text. this s done by using an underscore (<code>_</code>) symbol after a term.</p>
+          <pre><code>x^2 \\ % Superscript
+a_1    % Subscript</code></pre>
+          <div class="mathjax-rendering">\[ x^2 \] \[ a_1 \]</div>
+
+          <h3>Grouping using brackets</h3>
+          <p>Note that if there is more than one symbol in superscript/subscript, you need to group them using curly brackets (<code>{}</code>), or not only the first symbol will be in superscript/subscript.</p>
+          <pre><code>e^{kx} \\ % with grouping
+e^kx      % without grouping</code></pre>
+          <div class="mathjax-rendering">\[ e^{kx} \] \[ e^kx \]</div>
+          
+          <h3>Simultaneous superscript and subscript</h3>
+          <p>If both are used at the same time, they will be placed relative to the main character and not each other. Hence, order doesn't matter, but you should use the appropriate one according to mathematical language.</p>
+          <pre><code>a_1^2 \\ % a sub-1 squared
+a^2_1    % a squared sub-1</code></pre>
+          <div class="mathjax-rendering">\[ a_1^2 \] \[ a^2_1 \]</div>
+
+          <h3>Combining superscript and subscript</h3>
+          <p>Also, by grouping the symbols accordingly (and hence asking LaTeX to treat certain symbols as one object), you can choose whether the superscript/subscript will be stacked or offset. These are mostly stylistic choices depending on each user.</p>
+          <pre><code>p_1^{a_1} \\   % Stacked
+{p_1}^{a_1}    % Offset</code></pre>
+          <div class="mathjax-rendering">\[ p_1^{a_1} \] \[ {p_1}^{a_1} \]</div>
+        </section>
+        <section id="Parentheses" class="main-section">
+          <header><h2>Parentheses</h2></header>
+          <p>Using the parentheses available on the keyboard will generally make an expression hard to read as they are not of the appropriate size. Example is once again taken from the video.</p>
+          <pre><code>\[ ( \sum_{n=0}^N ( \frac{1}{a + b} )^2 )^2 \]</code></pre>
+          <div class="mathjax-rendering">\[ ( \sum_{n=0}^N ( \frac{1}{a + b} )^2 )^2 \]</div>
+
+          <p>Hence, to let LaTeX to choose the appropriate size, you should use <code>\left(</code> for the left/opening bracket, and <code>\right)</code> for the right/closing bracket. Note that when using this, they must came in pairs so that \( \LaTeX \) can properly calculate the appropriate size.</p>
+          <pre><code>\[ \left( \sum_{n=0}^N \left( \frac{1}{a + b} \right)^2 \right)^2 \]</code></pre>
+          <div class="mathjax-rendering">\[ \left( \sum_{n=0}^N \left( \frac{1}{a + b} \right)^2 \right)^2 \]</div>
+
+          <p>If you need brackets on only one side, you can use <code>\left.</code> and <code>\right.</code> on the side you don't want the parenthesis at.</p>
+          <pre><code>\[ \left( \sum_{n=0}^N \left( \frac{1}{a + b} \right. \right. \]</code></pre>
+          <div class="mathjax-rendering">\[ \left( \sum_{n=0}^N \left( \frac{1}{a + b} \right. \right. \]</div>
+
+          <p>You can also manually choose the size of the bracket using the following modifiers:</p>
+          <ul>
+            <li><code>( a )</code></li>
+            <li><code>\big( a \big)</code></li>
+            <li><code>\Big( a \Big)</code></li>
+            <li><code>\bigg( a \bigg)</code></li>
+            <li><code>\Bigg( a \Bigg)</code></li>
+          </ul>
+          <div class="mathjax-rendering">\[ ( a ) \big( a \big) \Big( a \Big) \bigg( a \bigg) \Bigg( a \Bigg) \]</div>
+        </section>
+        <section id="Writing_text_in_math_mode" class="main-section">
+          <header><h2>Writing text in math mode</h2></header>
+          <p>To write text in math mode, e.g. a condition for an equation, you must use the <code>\text{}</code> command, otherwise LaTeX will interpret it as a product of variables.</p>
+          <pre><code>\[ n = ab where a and b are natural numbers \]</code></pre>
+          <div class="mathjax-rendering">\[ n = ab where a and b are natural numbers \]</div>
+
+          <p>You must also type explicit spaces, since LaTeX will not add them automatically.</p>
+          <pre><code>\[ n = ab \text{where} a \text{and} b \text{are natural numbers} \]</code></pre>
+          <div class="mathjax-rendering">\[ n = ab \text{where} a \text{and} b \text{are natural numbers} \]</div>
+
+          <p>There is more than one way to write the same text, however it's helpful to organize the code in a logical manner, to make the code easier to read. E.g., since the statement is an equation and condition, you may put the condition completely inside of the <code>\text{}</code> command, and use <code>\( ... \)</code> to activate inline math appropriately for e.g., variables, as shown in the second line.</p>
+          <pre><code>\[ n = ab \text{ where } a \text{ and } b \text{ are natural numbers} \]
+
+% This one may be better:
+\[ n = ab \text{ where \( a \) and \( b \) are natural numbers} \]</code></pre>
+          <div class="mathjax-rendering">\[ n = ab \text{ where } a \text{ and } b \text{ are natural numbers} \] \[ n = ab \text{ where \( a \) and \( b \) are natural numbers} \]</div>
+        </section>
+        <section id="Greek_letters" class="main-section">
+          <header><h2>Greek letters</h2></header>
+          <p>Greek letters can generally be written out by writing a backslash followed by the name of the variable. To get the capitalized letter, capitalize the first character of the letter name. Some characters in the Greek alphabet are the same, so there's no need to use the slash (just use whatever is available on the keyboard). There are also variations of the lowercase Greek letters, which you can get by adding "<code>var</code>" before the Greek latter name.</p>
+          <p>Below is an example with the variable <code>phi</code></p>
+          <pre><code>\phi \\     % Lowercase phi
+\varphi \\  % Variation of lowercase phi
+\Phi        % Uppercase phi</code></pre>
+          <div class="mathjax-rendering">\[ \phi \] \[ \varphi \] \[ \Phi \]</div>
+        </section>
+        <section id="Blackboard_font" class="main-section">
+          <header><h2>Blackboard font</h2></header>
+          <p>Blackboard font are letters which have double lines, commonly used to represent important sets in mathematics. These can be entered by using the <code>\mathbb{}</code> command and entering the desired letter into the curly braces.</p>
+          <p>As examples, below is a list of some common sets with their corresponding letters in blackboard font:</p>
+          <ul>
+            <li>Natural numbers: <code>\mathbb{N}</code> becomes \( \mathbb{N} \)</li>
+            <li>Integers: <code>\mathbb{Z}</code> becomes \( \mathbb{Z} \)</li>
+            <li>Rational numbers: <code>\mathbb{Q}</code> becomes \( \mathbb{Q} \)</li>
+            <li>Real numbers: <code>\mathbb{R}</code> becomes \( \mathbb{R} \)</li>
+            <li>Complex numbers: <code>\mathbb{C}</code> becomes \( \mathbb{C} \)</li>
+          </ul>
+        </section>
       </main>
     </div>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
