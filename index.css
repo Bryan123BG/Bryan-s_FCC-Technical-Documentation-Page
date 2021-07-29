@@ -69,9 +69,6 @@ p,
 li {
   line-height: 1.7;
 }
-code {
-  line-height: 1.5;
-}
 p {
   margin-bottom: 1em;
 }
@@ -136,6 +133,7 @@ code {
   background: hsl(113, 0%, 95%);
   padding: 0.25em;
   border-radius: 0.25em;
+  line-height: 1.5;
 }
 pre {
   white-space: pre-wrap;
