@@ -124,6 +124,7 @@ a.nav-link:last-of-type::after {
 a.nav-link:hover {
   color: hsl(113, 50%, 30%);
   background: hsl(0, 0%, 95%);
+  font-weight: 700;
 }
 
 /* Content */
